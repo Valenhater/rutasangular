@@ -7,13 +7,17 @@ import { AppComponent } from './app.component';
 import { CineComponent } from './components/cine/cine.component';
 import { HomeComponent } from './components/home/home.component';
 import { MusicaComponent } from './components/musica/musica.component';
+import { MenuComponent } from './components/menu/menu.component';
+import { Error404Component } from './components/error404/error404.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CineComponent,
     HomeComponent,
-    MusicaComponent
+    MusicaComponent,
+    MenuComponent,
+    Error404Component
   ],
   imports: [
     BrowserModule,
