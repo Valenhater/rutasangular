@@ -7,28 +7,35 @@ import { ActivatedRoute, Params } from '@angular/router';
   styleUrls: ['./collatzcomponent.component.css'],
 })
 export class CollatzcomponentComponent {
-  public number!: number;
-  public collatzResult!: string;
+  public numero!: number;
+
+  public numeros!: Array<number>;
 
   constructor(private _activeRoute: ActivatedRoute) {}
 
-  ngOnInit(){
+  ngOnInit(): void {
     this._activeRoute.params.subscribe((parametros: Params) => {
-        this.number= +parametros['num'];
-        this.collatzResult = this.calculateCollatz(this.number)
-      });
-}
-calculateCollatz(n: number): string {
-  let result = n.toString() + ' -> ';
-  while (n !== 1) {
-    if (n % 2 === 0) {
-      n /= 2;
-    } else {
-      n = 3 * n + 1;
-    }
-    result += n.toString() + ' -> ';
-  }
-  return result + 'Collatz completado';
-}
+      if (parametros['num'] != null) {
+        this.numero = parseInt(parametros['num']);
 
+        this.generarCollatz();
+      }
+    });
+  }
+
+  generarCollatz(): void {
+    this.numeros = new Array<number>();
+
+    let num = this.numero;
+
+    while (num != 1) {
+      if (num % 2 == 0) {
+        num = num / 2;
+      } else {
+        num = num * 3 + 1;
+      }
+
+      this.numeros.push(num);
+    }
+  }
 }

@@ -1,4 +1,8 @@
 <div>
-  <h2>Conjetura de Collatz del numero: {{ number }}</h2>
-  <p>{{ collatzResult }}</p>
+  <h1>Conjetura de collatz del numero {{numero}}</h1>
+  <div *ngIf="numero">
+    <ul>
+      <li *ngFor="let num of numeros">{{num}}</li>
+    </ul>
+  </div>
 </div>

@@ -1,18 +1,22 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-menucollatz',
+
   templateUrl: './menucollatz.component.html',
-  styleUrls: ['./menucollatz.component.css']
+
+  styleUrls: ['./menucollatz.component.css'],
 })
-export class MenucollatzComponent {
+export class MenucollatzComponent implements OnInit {
   public numbers!: Array<number>;
 
-  constructor(){
-    this.generarNumerosCollatz();
-  }
+  ngOnInit(): void {
+    this.numbers = new Array<number>();
 
-  generarNumerosCollatz(){
-    this.numbers = Array.from({length:10}, () => Math.floor(Math.random() * 100))
+    for (let i = 1; i <= 7; i++) {
+      let random = Math.floor(Math.random() * 100) + 1;
+
+      this.numbers.push(random);
+    }
   }
 }
