@@ -6,5 +6,13 @@ import { Component } from '@angular/core';
   styleUrls: ['./menucollatz.component.css']
 })
 export class MenucollatzComponent {
-  numbers: number[] = [1, 2, 3, 4, 5];
+  public numbers!: Array<number>;
+
+  constructor(){
+    this.generarNumerosCollatz();
+  }
+
+  generarNumerosCollatz(){
+    this.numbers = Array.from({length:10}, () => Math.floor(Math.random() * 100))
+  }
 }

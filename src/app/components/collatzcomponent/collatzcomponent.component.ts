@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Params } from '@angular/router';
 
 @Component({
   selector: 'app-collatzcomponent',
@@ -7,15 +7,28 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./collatzcomponent.component.css'],
 })
 export class CollatzcomponentComponent {
-  number: number;
-  collatzResult: String;
+  public number!: number;
+  public collatzResult!: string;
 
   constructor(private _activeRoute: ActivatedRoute) {}
 
   ngOnInit(){
     this._activeRoute.params.subscribe((parametros: Params) => {
-        this.number= +parametros['number'];
+        this.number= +parametros['num'];
         this.collatzResult = this.calculateCollatz(this.number)
       });
 }
+calculateCollatz(n: number): string {
+  let result = n.toString() + ' -> ';
+  while (n !== 1) {
+    if (n % 2 === 0) {
+      n /= 2;
+    } else {
+      n = 3 * n + 1;
+    }
+    result += n.toString() + ' -> ';
+  }
+  return result + 'Collatz completado';
+}
+
 }
