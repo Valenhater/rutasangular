@@ -9,6 +9,9 @@ import { HomeComponent } from './components/home/home.component';
 import { MusicaComponent } from './components/musica/musica.component';
 import { MenuComponent } from './components/menu/menu.component';
 import { Error404Component } from './components/error404/error404.component';
+import { NumerodobleComponent } from './components/numerodoble/numerodoble.component';
+import { MenucollatzComponent } from './components/menucollatz/menucollatz.component';
+import { CollatzcomponentComponent } from './components/collatzcomponent/collatzcomponent.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +20,10 @@ import { Error404Component } from './components/error404/error404.component';
     HomeComponent,
     MusicaComponent,
     MenuComponent,
-    Error404Component
+    Error404Component,
+    NumerodobleComponent,
+    MenucollatzComponent,
+    CollatzcomponentComponent
   ],
   imports: [
     BrowserModule,
